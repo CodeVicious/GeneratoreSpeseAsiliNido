@@ -23,7 +23,7 @@ public class NidoConverter {
 		parserSettings.setLineSeparatorDetectionEnabled(true);
 		parserSettings.setHeaderExtractionEnabled(true);
 
-		parserSettings.getFormat().setDelimiter(',');
+		parserSettings.getFormat().setDelimiter(';');
 		// BeanListProcessor converts each parsed row to an instance of a given
 		// class, then stores each instance into a list.
 		BeanListProcessor<RigaExport> rowProcessor = new BeanListProcessor<RigaExport>(RigaExport.class);
@@ -45,7 +45,7 @@ public class NidoConverter {
 		// the 'parse' method will parse the file and delegate each parsed row
 		// to the RowProcessor you defined
 
-		EcivisCsvReader reader = new EcivisCsvReader("/pagamenti_nido_2017.csv");
+		EcivisCsvReader reader = new EcivisCsvReader("/pagamenti_nido_2018.csv");
 		parser.parse(reader.getReader());
 
 		List<RigaExport> beans = rowProcessor.getBeans();
@@ -114,8 +114,8 @@ public class NidoConverter {
 		for (RigaExport bean : beans) {
 			writerROW.addValue("1");
 			writerROW.addValue(bean.getCodiceFiscale());
-			writerROW.addValue("1");
-			writerROW.addValue("");
+			writerROW.addValue("0");
+			writerROW.addValue(bean.getCfGenitore());
 			writerROW.addValue(String.format("%09d",Math.round(Float.parseFloat(bean.getTotalePagato().replace(".", "").replace(',', '.')))));
 			writerROW.addValue("");
 			writerROW.addValue("");

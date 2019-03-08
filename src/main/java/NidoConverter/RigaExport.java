@@ -35,6 +35,10 @@ public class RigaExport {
 	@Parsed(field = "Totale Pagato")
 	private String totalePagato;
 
+	@Parsed(field = "CFGenitore")
+	private String cfGenitore;
+
+
 	public String getComune() {
 		return comune;
 	}
@@ -99,5 +103,11 @@ public class RigaExport {
 		this.totalePagato = totalePagato;
 	}
 
-	
+	public String getCfGenitore() {
+		return cfGenitore;
+	}
+
+	public void setCfGenitore(String cfGenitore) {
+		this.cfGenitore = cfGenitore;
+	}
 }

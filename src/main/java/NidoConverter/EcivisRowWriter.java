@@ -7,7 +7,7 @@ import java.io.UnsupportedEncodingException;
 import java.io.Writer;
 
 public class EcivisRowWriter {
-	private static final String OUTPUT_FILE = "C:\\Users\\administrator\\Desktop\\TESTS\\testFile.txt";
+	private static final String OUTPUT_FILE = "C://Users//administrator//Downloads//testFile.txt";
 
 	public EcivisRowWriter() {
 	}
